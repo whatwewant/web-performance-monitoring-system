@@ -3,7 +3,7 @@ let PROT = 18088;
 
 // ORIGIN参数匹配是否是https
 const IS_HTTPS = process.env.IS_HTTPS || 'FALSE'
-let ORIGIN = process.env.ORIGIN || `http://127.0.0.1:${PROT}`
+let ORIGIN = process.env.DOMAIN ? `https://${process.env.DOMAIN}` : process.env.ORIGIN || `http://127.0.0.1:${PROT}`
 if(IS_HTTPS == 'TRUE') ORIGIN = `https://127.0.0.1:${PROT}`
 
 // 系统配置
