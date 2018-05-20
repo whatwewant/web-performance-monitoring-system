@@ -3,7 +3,7 @@ let PROT = 18088;
 
 // ORIGIN参数匹配是否是https
 const IS_HTTPS = process.env.IS_HTTPS || 'FALSE'
-let ORIGIN = `http://127.0.0.1:${PROT}`
+let ORIGIN = process.env.ORIGIN || `http://127.0.0.1:${PROT}`
 if(IS_HTTPS == 'TRUE') ORIGIN = `https://127.0.0.1:${PROT}`
 
 // 系统配置
@@ -31,19 +31,19 @@ export let SYSTEM = {
 
 export let DB = {
 	// 服务器地址
-	HOST: '172.16.50.158',
+	HOST: process.env.MYSQL_HOST || '127.0.0.1',
 
 	// 数据库端口号     
-	PROT: 3306,
+	PROT: process.env.MYSQL_PORT || 3306,
 
 	// 数据库用户名              
-	USER: 'root',
+	USER: process.env.MYSQL_USER || 'root',
 
 	// 数据库密码    
-	PASSWORD: '123456',
+	PASSWORD: process.env.MYSQL_PASSWORD || '123456',
 
 	// 数据库名称    
-	DATABASE: 'web-performance',
+	DATABASE: process.env.MYSQL_DATABASE || 'web-performance',
 
 	// 默认"api_"
 	PREFIX: 'web_'

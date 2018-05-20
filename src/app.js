@@ -58,16 +58,16 @@ app
             uploadDir: path.join(__dirname, '/upload')
         }
     }))
-    .use(serve(__dirname + "/assets",{
-        maxage: 365 * 24 * 60 * 60 
-    }))
-    .use(koa2Common())
     .use(cors({
         origin: SYSTEM.ORIGIN,
         headers: 'Origin, X-Requested-With, Content-Type, Accept',
         methods: ['GET', 'PUT', 'POST'],
         credentials: true,
     }))
+    .use(serve(__dirname + "/assets",{
+        maxage: 365 * 24 * 60 * 60 
+    }))
+    .use(koa2Common())
     .use(front.routes())
     .use(front.allowedMethods())
     .use(back.routes())

@@ -14,7 +14,7 @@ async function transaction(arr) {
                 user: DB.USER,
                 password: DB.PASSWORD,
                 database: DB.DATABASE,
-                port: DB.PROT
+                port: DB.PROT,
             }],
             dynamicConnection: 32,
             idleConnectionCutoffTime: 1000,
